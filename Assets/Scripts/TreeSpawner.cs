@@ -30,5 +30,6 @@ public class TreeSpawner : MonoBehaviour {
 		var planetToTreeVector = (spawnPos - planet.position).normalized;
 
 		tree.transform.up = planetToTreeVector;
+		tree.transform.RotateAround(spawnPos, tree.transform.up, Random.Range(0, 360f));
 	}
 }
