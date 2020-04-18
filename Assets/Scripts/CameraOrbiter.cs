@@ -5,8 +5,9 @@ public class CameraOrbiter : MonoBehaviour {
 	[SerializeField] private Transform orbitRelativeTo;
 
 	[SerializeField] private float orbitSpeed;
-	[SerializeField] private float orbitDistance;
+	[SerializeField] private float initialOrbitDistance;
 	[SerializeField] private float orbitDistanceChangeSpeed;
+	[SerializeField] private float orbitDistanceChangeReactTime;
 
 	[SerializeField] private float minOrbitDistance;
 	[SerializeField] private float maxOrbitDistance;
@@ -17,9 +18,15 @@ public class CameraOrbiter : MonoBehaviour {
 	private Vector2 _mousePosLastFrame;
 	private Vector2 _mousePosThisFrame;
 	private Transform _transform;
+	private float _desiredOrbitDistance;
+	private float _currentOrbitDistance;
+	private float _currentOrbitDistanceChangeSpeed;
 
 	private void Start() {
 		_transform = transform;
+		_currentOrbitDistance = initialOrbitDistance;
+		_desiredOrbitDistance = initialOrbitDistance;
+		RealignCamera();
 	}
 
 	private void Update() {
@@ -48,14 +55,24 @@ public class CameraOrbiter : MonoBehaviour {
 	}
 	
 	private void ApplyUserInput() {
+		ApplyPlanetRotationInput();
+		ApplyOrbitDistanceChangeInput();
+	}
+
+	private void ApplyPlanetRotationInput() {
 		transform.Translate(_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed));
-		orbitDistance += _inputOrbiterDistanceChange * orbitDistanceChangeSpeed;
-		orbitDistance = Mathf.Clamp(orbitDistance, minOrbitDistance, maxOrbitDistance);
+	}
+
+	private void ApplyOrbitDistanceChangeInput() {
+		_desiredOrbitDistance += _inputOrbiterDistanceChange * orbitDistanceChangeSpeed;
+		_desiredOrbitDistance = Mathf.Clamp(_desiredOrbitDistance, minOrbitDistance, maxOrbitDistance);
+		_currentOrbitDistance = Mathf.SmoothDamp(_currentOrbitDistance, _desiredOrbitDistance,
+			ref _currentOrbitDistanceChangeSpeed, orbitDistanceChangeReactTime);
 	}
 
 	private void RealignCamera() {
 		var vectorTowardsPlanet = (orbitRelativeTo.position - _transform.position).normalized;
-		_transform.position = vectorTowardsPlanet * (-1 * orbitDistance);
+		_transform.position = vectorTowardsPlanet * (-1 * _currentOrbitDistance);
 		_transform.rotation = Quaternion.LookRotation(vectorTowardsPlanet, _transform.up);
 	}
 }

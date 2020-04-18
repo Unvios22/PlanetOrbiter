@@ -266,7 +266,7 @@ MonoBehaviour:
   treePrefabs:
   - {fileID: 1863669161783946524, guid: 51eb791ef4ca67f42a144fce4e5456e2, type: 3}
   - {fileID: 8740631649240932264, guid: 7c1cad69d20d5834fa31e00832399917, type: 3}
-  treeAmount: 80
+  treeAmount: 120
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,10 +387,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitRelativeTo: {fileID: 464979481}
   orbitSpeed: 25
-  orbitDistance: 175
+  initialOrbitDistance: 210
   orbitDistanceChangeSpeed: 15
-  minOrbitDistance: 95
-  maxOrbitDistance: 300
+  orbitDistanceChangeReactTime: 0.15
+  minOrbitDistance: 100
+  maxOrbitDistance: 360
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
