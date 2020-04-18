@@ -6,9 +6,13 @@ public class CameraOrbiter : MonoBehaviour {
 
 	[SerializeField] private float orbitSpeed;
 	[SerializeField] private float orbitDistance;
+	[SerializeField] private float orbitDistanceChangeSpeed;
 
-	private Vector2 _planetRotationVector;
-	//vector containing mouse position change
+	[SerializeField] private float minOrbitDistance;
+	[SerializeField] private float maxOrbitDistance;
+
+	private Vector2 _inputPlanetRotationVector;
+	private float _inputOrbiterDistanceChange;
 	
 	private Vector2 _mousePosLastFrame;
 	private Vector2 _mousePosThisFrame;
@@ -25,17 +29,28 @@ public class CameraOrbiter : MonoBehaviour {
 	}
 
 	private void ReadUserInput() {
+		ReadPlanetRotationInput();
+		ReadOrbiterDistanceChangeInput();
+	}
+	
+	private void ReadPlanetRotationInput() {
 		_mousePosThisFrame = Input.mousePosition;
 		if (!Input.GetKey(KeyCode.Mouse0)) {
-			_planetRotationVector = Vector2.zero;
+			_inputPlanetRotationVector = Vector2.zero;
 		} else {
-			_planetRotationVector = _mousePosLastFrame - _mousePosThisFrame;
+			_inputPlanetRotationVector = _mousePosLastFrame - _mousePosThisFrame;
 		}
 		_mousePosLastFrame = _mousePosThisFrame;
 	}
 
+	private void ReadOrbiterDistanceChangeInput() {
+		_inputOrbiterDistanceChange = -1 * Input.mouseScrollDelta.y;
+	}
+	
 	private void ApplyUserInput() {
-		transform.Translate(_planetRotationVector * (Time.deltaTime * orbitSpeed));
+		transform.Translate(_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed));
+		orbitDistance += _inputOrbiterDistanceChange * orbitDistanceChangeSpeed;
+		orbitDistance = Mathf.Clamp(orbitDistance, minOrbitDistance, maxOrbitDistance);
 	}
 
 	private void RealignCamera() {

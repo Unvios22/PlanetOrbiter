@@ -386,8 +386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitRelativeTo: {fileID: 464979481}
-  orbitSpeed: 15
+  orbitSpeed: 25
   orbitDistance: 175
+  orbitDistanceChangeSpeed: 15
+  minOrbitDistance: 95
+  maxOrbitDistance: 300
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
