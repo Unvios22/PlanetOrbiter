@@ -60,7 +60,8 @@ public class CameraOrbiter : MonoBehaviour {
 	}
 
 	private void ApplyPlanetRotationInput() {
-		transform.Translate(_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed));
+		var currentToMaxOrbitDistanceRatio = _currentOrbitDistance / maxOrbitDistance;
+		transform.Translate(_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed * currentToMaxOrbitDistanceRatio));
 	}
 
 	private void ApplyOrbitDistanceChangeInput() {
