@@ -5,6 +5,8 @@ public class CameraOrbiter : MonoBehaviour {
 	[SerializeField] private Transform orbitRelativeTo;
 
 	[SerializeField] private float orbitSpeed;
+	[SerializeField] private float orbitTranslationReactionTime;
+	
 	[SerializeField] private float initialOrbitDistance;
 	[SerializeField] private float orbitDistanceChangeSpeed;
 	[SerializeField] private float orbitDistanceChangeReactTime;
@@ -21,6 +23,10 @@ public class CameraOrbiter : MonoBehaviour {
 	private float _desiredOrbitDistance;
 	private float _currentOrbitDistance;
 	private float _currentOrbitDistanceChangeSpeed;
+
+	private Vector2 _desiredOrbitTranslation;
+	private Vector2 _currentOrbitTranslation;
+	private Vector2 _currentOrbitTranslationSpeed;
 
 	private void Start() {
 		_transform = transform;
@@ -60,8 +66,16 @@ public class CameraOrbiter : MonoBehaviour {
 	}
 
 	private void ApplyPlanetRotationInput() {
+		//todo refactor
 		var currentToMaxOrbitDistanceRatio = _currentOrbitDistance / maxOrbitDistance;
-		transform.Translate(_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed * currentToMaxOrbitDistanceRatio));
+		_desiredOrbitTranslation =
+			_inputPlanetRotationVector * (Time.deltaTime * orbitSpeed * currentToMaxOrbitDistanceRatio);
+		
+		_currentOrbitTranslation = Vector2.SmoothDamp(_currentOrbitTranslation, _desiredOrbitTranslation,
+			ref _currentOrbitTranslationSpeed, orbitTranslationReactionTime);
+		
+		_transform.Translate(_currentOrbitTranslation);
+		//todo some wonky float calculations going on with _current and _desired. See their values during runtime.
 	}
 
 	private void ApplyOrbitDistanceChangeInput() {

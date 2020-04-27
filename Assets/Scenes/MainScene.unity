@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.65080994, g: 0.666729, b: 0.7075472, a: 1}
+  m_FogColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.019653285, g: 0.019653285, b: 0.019653285, a: 1}
+  m_IndirectSpecularColor: {r: 0.017562816, g: 0.017562816, b: 0.017562816, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,6 +166,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ambientClips:
+  - {fileID: 8300000, guid: e2902f36c5efe3243aaa89f21ac26b17, type: 3}
+  - {fileID: 8300000, guid: bc42fd94f2c1f9b42b3b4d1cd2741efa, type: 3}
+  - {fileID: 8300000, guid: 8f0f118d9a0d36345866270389947424, type: 3}
+  - {fileID: 8300000, guid: da1871b66f489c5418357bb91f16bea1, type: 3}
   - {fileID: 8300000, guid: f4924731e6d71dc4ebf659aac0baa2ac, type: 3}
   - {fileID: 8300000, guid: 3a5a6b67e0a05f946b401a973569aa02, type: 3}
   - {fileID: 8300000, guid: e339fb51121f5214db6ac4b5019165e8, type: 3}
@@ -173,9 +177,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 215a02064d75021419ef87536ab45e0e, type: 3}
   - {fileID: 8300000, guid: 142714032042ad949a741ed55a718c8b, type: 3}
   - {fileID: 8300000, guid: 11ac782197a2f9e4f8bfd2676c230c4c, type: 3}
+  - {fileID: 8300000, guid: ffd5a62237ab28c4d8faa6e560011f0d, type: 3}
+  - {fileID: 8300000, guid: 2dffe39f288f6b5428b141b799f10214, type: 3}
   - {fileID: 8300000, guid: 89f7aa560dc717348832da0762d641cb, type: 3}
   - {fileID: 8300000, guid: 69b3a14202b70c24480d0fcb76a2a57b, type: 3}
   - {fileID: 8300000, guid: b6dc847eec4257e42b9391d63a02c44b, type: 3}
+  - {fileID: 8300000, guid: 3b7916cb622429b4abbb332b55891e0b, type: 3}
+  - {fileID: 8300000, guid: 4574fc2612c7b544f8c1b7ac40cc6bb5, type: 3}
+  - {fileID: 8300000, guid: 83fac0da055d88546b65c36663352d27, type: 3}
   - {fileID: 8300000, guid: 22d9c24f372cff84293658398ce9a6a2, type: 3}
   - {fileID: 8300000, guid: 2570f27e3ed655e4db44b69b4c00fcd0, type: 3}
   audioSource: {fileID: 1605679182}
@@ -261,10 +270,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f93f358b29394b43b0db2f11d3ef22f, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 76c57d8dd5a1d804f9b3ceb6f327870b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 76c57d8dd5a1d804f9b3ceb6f327870b,
         type: 3}
       propertyPath: m_Name
       value: fbxPlanet
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 76c57d8dd5a1d804f9b3ceb6f327870b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76c57d8dd5a1d804f9b3ceb6f327870b, type: 3}
@@ -339,8 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetTransform: {fileID: 464979481}
-  rotationAxis: {x: 1, y: 1.5, z: 0}
-  rotationSpeed: 15
+  rotationAxis: {x: 2, y: 1.5, z: 3}
+  rotationSpeed: 45.88
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +408,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1112698029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112698030}
+  - component: {fileID: 1112698031}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112698030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112698029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -216.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1422569539}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1112698031
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112698029}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 0, g: 0.6403694, b: 1, a: 1}
+  m_Intensity: 3
+  m_Range: 631.36
+  m_SpotAngle: 179
+  m_InnerSpotAngle: 170.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.1
+    m_NearPlane: 0.1
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 12, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1140771624
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +530,53 @@ Transform:
   m_Father: {fileID: 464979481}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1422569538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422569539}
+  - component: {fileID: 1422569540}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1422569539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422569538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1112698030}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422569540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422569538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0630824164d52f747808767f06e0058b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetTransform: {fileID: 1422569539}
+  rotationAxis: {x: 0, y: 2, z: 2}
+  rotationSpeed: 20
 --- !u!1 &1605679180
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,12 +746,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitRelativeTo: {fileID: 464979481}
-  orbitSpeed: 45
+  orbitSpeed: 50
+  orbitTranslationReactionTime: 0.25
   initialOrbitDistance: 210
   orbitDistanceChangeSpeed: 15
   orbitDistanceChangeReactTime: 0.15
   minOrbitDistance: 100
-  maxOrbitDistance: 360
+  maxOrbitDistance: 400
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class AmbientMusicController : MonoBehaviour {
     private List<AudioClip> _remainingClipsToPlay;
 
     private void Start() {
-        _remainingClipsToPlay = ambientClips;
+        _remainingClipsToPlay = new List<AudioClip>(ambientClips);
         PlayNextClip();
     }
 
@@ -30,7 +30,7 @@ public class AmbientMusicController : MonoBehaviour {
         _remainingClipsToPlay.Remove(clipToPlay);
         
         if (_remainingClipsToPlay.Count == 0) {
-            _remainingClipsToPlay = ambientClips;
+            _remainingClipsToPlay = new List<AudioClip>(ambientClips);
         }
 
         return clipToPlay;
