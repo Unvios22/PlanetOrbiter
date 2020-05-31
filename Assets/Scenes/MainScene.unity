@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335535334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 1, z: -119.4}
+  m_LocalPosition: {x: -7.5, y: 1, z: 1420}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -417,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464979480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -286, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 423494191}
@@ -783,12 +783,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c30fb14b01d3d4ca5625bb4920d0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitRelativeTo: {fileID: 464979481}
-  orbitSpeed: 50
+  orbitingTarget: {fileID: 0}
+  orbitTranslationSpeed: 15
   orbitTranslationReactionTime: 0.25
   initialOrbitDistance: 500
   orbitDistanceChangeSpeed: 20
-  orbitDistanceChangeReactTime: 0.2
+  orbitDistanceChangeReactionTime: 0.2
   minOrbitDistance: 100
   maxOrbitDistance: 650
 --- !u!20 &1687258584
