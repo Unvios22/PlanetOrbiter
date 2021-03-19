@@ -73,7 +73,7 @@ public class CameraOrbiter : MonoBehaviour {
 	private void ApplyCameraStrafingInput() {
 		var currentToMaxOrbitDistanceRatio = _currentOrbitDistance / maxOrbitDistance;
 		_desiredOrbitTranslation =
-			_cameraStrafingMoveVector * (Time.deltaTime * orbitTranslationSpeed * currentToMaxOrbitDistanceRatio);
+			_cameraStrafingMoveVector * (orbitTranslationSpeed * currentToMaxOrbitDistanceRatio);
 		
 		_currentOrbitTranslation = Vector2.SmoothDamp(_currentOrbitTranslation, _desiredOrbitTranslation,
 			ref _currentOrbitTranslationSpeed, orbitTranslationReactionTime);
